@@ -17,5 +17,6 @@
 	</target>                                       
 	<target name="clean" description="clean up">    
 		<delete dir="${dist}" />           
-	</target>          
+	</target>   
+	</hello>
 </project>                                                                                                                      
