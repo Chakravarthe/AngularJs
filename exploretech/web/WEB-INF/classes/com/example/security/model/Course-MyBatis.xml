@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="Course">
+ 
+ <select id="getBranches" resultType="map">
+		select
+	     branchid,branchname   
+		from principal.branch_mst Order By branchname;
+	</select> 
+	
+	<select id="getCourses"  parameterType="java.lang.String" resultType="map">
+		select courseid AS courseid,coursename as
+		coursename from                              
+		principal.course_mst where  branchid=#{branchid} order by  
+		coursename;                
+	</select>
+	    
+	<select id="getDistricts" resultType="map">   
+		select districtid,districtname            
+		from apssdc.district_mst Order By districtname;
+	</select> 
+	
+	<select id="getColleges"  parameterType="java.lang.Integer" resultType="map">
+		select collegeid AS collegeid,collegename as
+		collegename from                              
+		apssdc.college_mst where  districtid=#{districtid} order by  
+		collegename;                
+	</select>                                 
+	
+	<select id="getPolyColleges"  parameterType="java.lang.Integer" resultType="map">
+		select collegeid AS collegeid,collegename as
+		collegename from                              
+		apssdc.colleges_mst where  districtid=#{districtid} order by    
+		collegename;                            
+	</select>
+          
+
+
+<select id="getAmount" parameterType="java.lang.String" resultType="Course">
+select amount from principal.course_mst where courseid=#{courseid};
+</select>		      
+			
+</mapper>    

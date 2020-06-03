@@ -1,0 +1,121 @@
+<script src="/exploretech/js/jquery.min.js"></script>
+ <script src="/exploretech/scripts/MentorsServiceModule.js"></script> 
+
+<style type="text/css">
+.glyphicon-refresh-animate {
+   -animation: spin .7s infinite linear;    
+   -ms-animation: spin .7s infinite linear;
+   -webkit-animation: spinw .7s infinite linear;
+   -moz-animation: spinm .7s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+  
+@-webkit-keyframes spinw { 
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes spinm {   
+    from { -moz-transform: rotate(0deg);}
+    to { -moz-transform: rotate(360deg);}                    
+}
+</style>
+<br />
+<div id="loginCreationDiv" data-ng-controller="MentorsController">
+	<div class="form-group row">    
+	    
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<label>Mentors login credentials details</label>
+				</div>      
+				<div class="panel-body">
+				<div class="row">
+						<div class="col-md-3">            
+							<label class="control-label">Name&nbsp;<b style="color: red;">*</b></label>
+							<input type="text" class="form-control" data-ng-model="data.object.mentorsname">
+						</div>
+					<div class="col-md-3">
+							<label class="control-label">Email&nbsp;<b style="color: red;">*</b></label>
+							<input type="email" class="form-control" data-ng-model="data.object.mentorsemail"
+								required="required" pattern="^[A-Za-z0-9.$]*[@][a-z]{3,7}.(com|gov|org|office|co.in|edu|in|ac.in|edu.in)">
+						</div>                              
+						<div class="col-md-3">
+							<label class="control-label">Phone&nbsp;<b style="color: red;">*</b></label>
+							<input type="text" class="form-control" data-ng-model="data.object.phoneno" maxlength="10" pattern="^[9|8|7][0-9]{9}">
+						</div>
+						</div>
+						<div class="row">
+						</div>
+						<div class="row">
+						 <div class="col-md-3">  
+						<label class="control-label">Branch&nbsp;<b style="color: red;">*</b></label>
+             <select data-ng-model="data.object.branchid" id="course"
+						 class="form-control" data-ng-change="getCourses(data.object.branchid)">
+						<option value="">--Select Branch to learn--</option>
+						<option data-ng-repeat="branch in branches"    
+							value={{branch.branchid}}>{{branch.branchname}}</option>
+			</select>        
+             </div>    
+             <div class="col-md-3">  
+      					<label class="control-label">Course&nbsp;<b style="color: red;">*</b></label>
+             <select data-ng-model="data.object.courseid" id="course"
+						 class="form-control" >
+						<option value="">--Select Courses--</option>
+						<option data-ng-repeat="course in courses"    
+							value={{course.courseid}}>{{course.coursename}}</option>
+			</select> 
+             </div>     
+						
+							</div>
+							<div class="row">
+							<!-- <div class="col-md-3">
+							<label class="control-label">Role&nbsp;<b style="color: red;">*</b></label>
+							<input type="text" class="form-control" data-ng-model="data.object.role">
+						</div> -->
+						<div class="col-md-3" style="margin-top: 2.5%;">
+							<button type="button" class="btn btn-success" data-dismiss="modal" 
+							data-ng-click="createLogin(data.object);">Create</button>
+							&nbsp;&nbsp;&nbsp;
+							
+						</div>
+						</div>
+					<div id="loginsDiv">
+						<div class="text-center">
+							<table class="table table-bordered">
+								<thead style="background-color: #f5f5f5; color: #333;">
+									<tr>
+										<th>Email</th>
+										<th>Password</th>
+									</tr>   
+								</thead>
+								<tbody>
+									<tr>
+										<td>{{mentors.mentorsemail}}</td>
+										<td>{{mentors.password}}</td>
+									</tr>
+								</tbody>
+							</table>
+							<div style="text-align: center;" id="msgDiv">
+								<label style="font-weight: normal; font-size: medium;">No data available</label>
+							</div>
+						</div>     
+					</div>   
+				</div>
+			</div>                  
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+	</div>
+<script>
+	jQuery(document).ready(function() {  
+		$("#loginsDiv").hide();
+		$("#msgDiv").hide();
+		angular.bootstrap(jQuery("#loginCreationDiv"), [ 'MentorsServiceModule' ]);
+	});
+</script>

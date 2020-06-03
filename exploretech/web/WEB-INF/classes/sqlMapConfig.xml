@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+   		<typeAliases>
+   		  
+   		     <typeAlias alias="login" type="com.spring.Model.Login" />
+   		     <typeAlias alias="email" type="com.spring.Model.Email" />
+   		     <typeAlias alias="college" type="com.spring.Model.College" />
+   		  	 <typeAlias alias="AddStudent" type="com.spring.Model.AddStudent" />   
+   		  	  <typeAlias alias="Register" type="com.spring.Model.Register" />
+   		  	  <typeAlias alias="Course" type="com.spring.Model.Course" />  
+   		    	  <typeAlias alias="Student" type="com.spring.Model.Student" />
+   		    	  <typeAlias alias="Form" type="com.spring.Model.Form" />
+   		    	    <typeAlias alias="Program" type="com.spring.Model.Program" />  
+   		    <typeAlias alias="Report" type="com.spring.Model.Report" />    
+   		    	      
+   		     	      <typeAlias type="com.spring.Model.MentorsModel" alias="MentorsModel"/> 
+   		  	  
+   		    	  
+      	</typeAliases>              
+      	    
+   	 	<mappers>     
+   	 	                 
+   	         <mapper resource="com/example/security/model/Login-MyBatis.xml" />
+   	 	     <mapper resource="com/example/security/model/College-MyBatis.xml" />
+   	 	     <mapper resource="com/example/security/model/AddStudent-MyBatis.xml" />   
+   	 	      <mapper resource="com/example/security/model/Register-MyBatis.xml" />
+   	 	        <mapper resource="com/example/security/model/Course-MyBatis.xml" />
+       	 	        <mapper resource="com/example/security/model/Student-MyBatis.xml" />
+       	 	 <mapper resource="com/example/security/model/Form-MyBatis.xml" />
+       	 	  <mapper resource="com/example/security/model/Program-MyBatis.xml" />
+   	 	          <mapper resource="com/example/security/model/MentorsLogin-MyBatis.xml"/>
+   	 	           <mapper resource="com/example/security/model/Report-MyBatis.xml"/>
+   	 	          
+   	 	        
+       	 	        
+   	 	           
+       	</mappers>         
+        
+</configuration>   

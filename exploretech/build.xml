@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<project name="exploretech" default="war" basedir=".">
+	<description>Application build file</description>
+	<target name="war">
+		<mkdir dir="warfile" />
+		<war destfile="warfile/exploretech.war" webxml="web/WEB-INF/web.xml">
+			<fileset dir="web" />
+			<classes dir="web/WEB-INF/classes" /> 
+		</war>  
+
+		<copy todir="E:/Program Files/Tomcat7.0.85/webapps" flatten="true">
+			<resources>
+				<file file="warfile/exploretech.war" />            
+			</resources>                            
+		</copy>                         
+	</target>                                       
+	<target name="clean" description="clean up">    
+		<delete dir="${dist}" />           
+	</target>          
+</project>                                                                                                                      

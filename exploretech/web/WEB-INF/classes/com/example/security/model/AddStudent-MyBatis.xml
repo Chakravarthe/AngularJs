@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="AddStudent">
+ 
+ 	<insert id="saveIntake" parameterType="map">
+		 insert into principal.student_intake(institutioncode,courseid,intake)
+     values(#{p.institutioncode},#{p.courseid},#{p.intake})
+     </insert>
+
+    <insert id="saveDetails" parameterType="map">
+		 insert into principal.student_details(studentname,institutioncode,courseid,fathername,hno,village,mandal,pincode,mobileno,year)
+     values(#{p.name},#{p.institutioncode},#{p.courseid},#{p.fname},#{p.hno},#{p.village},#{p.mandal},#{p.pincode},#{p.mobileno},#{p.year})
+     </insert>
+    <!-- <insert id="saveDetails" parameterType="map">
+		 insert into principal.student_details(studentname,fathername,hno,village,mandal,pincode,mobileno,applicationid,year)
+     values(#{p.name},#{p.fname},#{p.hno},#{p.village},#{p.mandal},#{p.pincode},#{p.mobileno},concat('occ',institutioncode,courseid,rowid),#{p.year})
+     </insert> -->
+	<insert id="saveFileUploadDetails" parameterType="map">
+		INSERT INTO
+		admin.fileuploaddetails(role, filepath,fileextension,
+		logtime)
+		VALUES(#{p1.role},#{p1.filePath},#{p1.fileExtension},current_timestamp);
+	</insert>
+	
+	 <update id="updateDetails"  parameterType="map">                      
+		update principal.student_details SET 
+		applicationid=concat('OCC',#{p.institutioncode},#{p.courseid},lpad(CAST( rowid AS character varying ),3,'0')) 
+		WHERE Studentname=#{p.name};                                     
+	</update> 
+    
+    <select id="getAll" resultType="AddStudent">
+		SELECT studentname as name,fathername as fname,hno,village,mandal,pincode,mobileno,applicationid,year from principal.student_details ORDER BY studentname; 
+	  </select>
+	 
+	 <select id="getById" resultType="AddStudent">   
+		SELECT studentname as name,fathername as fname,hno,village,mandal,pincode,mobileno,applicationid,year from principal.student_details WHERE studentname = #{p.name};
+	  </select>
+	        
+	<select id="getYear" resultType="AddStudent" parameterType="java.lang.String">                          
+	SELECT concat(EXTRACT(YEAR FROM CURRENT_DATE),'-',EXTRACT(YEAR FROM CURRENT_DATE)+1) as year;	
+	</select>
+	        
+	 <update id="updateData"  parameterType="map">                      
+		update principal.student_details SET fathername=#{p.fname},hno=#{p.hno},village=#{p.village},mandal=#{p.mandal},pincode=#{p.pincode},mobileno=#{p.mobileno} WHERE Studentname=#{p.name};                                     
+	</update>      
+      
+   </mapper>  

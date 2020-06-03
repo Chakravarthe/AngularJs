@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Form">
+
+
+
+	<insert id="Insert" parameterType="map">
+		insert into principal.feedback(instruction, knowledge, activities, clarity, research, interaction, response, discussion, 
+		management, quality, integrates, checking, opportunity, language, participantsskills, ipaddress, name, email, comments, logtime,courseid)
+		values(#{p.instruction}, #{p.knowledge}, #{p.activities}, #{p.clarity},
+		#{p.research}, #{p.interaction}, #{p.response}, #{p.discussion},#{p.management}, #{p.quality}, #{p.integrates},
+		#{p.checking}, #{p.opportunity}, #{p.language}, #{p.participantsskills}, #{p.ipaddress}, #{p.name}, 
+		#{p.email}, #{p.comments}, current_timestamp,#{p.courseid});
+	</insert>    
+	   
+	</mapper>                     

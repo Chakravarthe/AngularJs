@@ -1,0 +1,102 @@
+<script src="/exploretech/scripts/AddProgramsModule.js"></script>
+
+<div id="workshopDiv" data-ng-controller="ProgramController">
+	<div class="form-group row">
+		<div class="col-md-1" style="width: 5%;"></div>       
+		<div class="col-md-10" style="width: 90%;">
+			<div class="panel panel-default">
+				<div class="panel-heading">      
+					<label>Program details</label>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row">
+						<div class="col-md-3">
+							<label class="control-label">Program Name</label>
+							<input type="text" data-ng-model="data.object.coursename" class="form-control">
+						</div>
+						<div class="col-md-3">
+							<label class="control-label">Course Id</label>
+							<input type="text" data-ng-model="data.object.courseid" class="form-control">
+						</div>
+						<div class="col-md-3">
+							<label class="control-label">Start date</label>
+							<input type="date" data-ng-model="data.object.startdate" class="form-control<!--  datePick -->">
+						</div>
+						<div class="col-md-3">
+							<label class="control-label">End date</label>
+							<input type="date" data-ng-model="data.object.enddate" class="form-control<!--  datePick -->">
+						</div>    
+					</div>
+					<div class="form-group row">
+					<div class="col-md-3">      
+							<label class="control-label">Program duration</label>
+							<input type="number" data-ng-model="data.object.programduration" class="form-control"/>
+						</div>
+						<div class="col-md-3">
+							<label class="control-label">Duration type</label>
+							<select class="form-control" data-ng-model="data.object.durationtype">
+								<option></option>
+								<option value="Days">Days</option>
+								<option value="Months">Months</option>
+							</select>
+						</div>
+						<div class="col-md-3">
+							<label class="control-label">Branch Name</label>
+							<select data-ng-model="data.object.branchid" id="course"
+						 class="form-control" >
+						<option value="">--Select Branch--</option>
+						<option data-ng-repeat="branch in branches"    
+							value={{branch.branchid}}>{{branch.branchname}}</option>
+						</select> 
+						</div>
+						<div class="col-md-3">
+							<label class="control-label">Fee</label>
+							<input data-ng-model="data.object.amount" class="form-control" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-3">
+							<label class="control-label">Upload documents (If any)</label>
+							<input type="file" data-ng-model="data.object.document"
+								onchange="angular.element(this).scope().uploadFiles(this);" multiple="multiple">
+						</div>
+					</div>
+					<!-- <div class="form-group row">
+						<div class="col-md-10">
+							<label class="control-label">Eligible year:</label>
+							<input type="checkbox" data-ng-model="qualification" value="ENGSTU">Engineering Student
+							<input type="checkbox" data-ng-model="qualification" value="POLYSTU">Polytechnic Student
+							<input type="checkbox" data-ng-model="qualification" value="GRADUATEES">Graduate
+							<input type="checkbox" data-ng-model="qualification" value="OTHERS">Others
+						</div>
+					</div> -->
+					
+					
+							<!-- <div data-ng-repeat="branch in courses track by $index" data-ng-if="$index%5==0">
+								<input type="checkbox" name="branch" data-ng-show="courses[$index] != null" data-ng-model="eligibleBranches[courses[$index].name]" value="{{courses[$index].name}}"> {{courses[$index].abbrevation}}
+								<input type="checkbox" name="branch" data-ng-show="courses[$index+1] != null" data-ng-model="eligibleBranches[courses[$index+1].name]" value="{{courses[$index+1].name}}"> {{courses[$index+1].abbrevation}}
+								<input type="checkbox" name="branch" data-ng-show="courses[$index+2] != null" data-ng-model="eligibleBranches[courses[$index+2].name]" value="{{courses[$index+2].name}}"> {{courses[$index+2].abbrevation}}
+								<input type="checkbox" name="branch" data-ng-show="courses[$index+3] != null" data-ng-model="eligibleBranches[courses[$index+3].name]" value="{{courses[$index+3].name}}"> {{courses[$index+3].abbrevation}}
+								<input type="checkbox" name="branch" data-ng-show="courses[$index+4] != null" data-ng-model="eligibleBranches[courses[$index+4].name]" value="{{courses[$index+4].name}}"> {{courses[$index+4].abbrevation}}
+							</div> -->
+						</div>
+					</div>
+					<div>
+							<button type="button" class="btn btn-success" data-ng-click="save(data.object);">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		           
+	
+<script>
+	
+	jQuery(document).ready(function() {
+		/* $(".datePick").datepicker({
+			dateFormat : "dd-mm-yy",
+			changeMonth : true,  
+			changeYear : true
+		}); */
+		angular.bootstrap(jQuery("#workshopDiv"), ['AddProgramsModule']);
+	});
+</script>

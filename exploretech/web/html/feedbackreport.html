@@ -1,0 +1,60 @@
+  <script src="/exploretech/scripts/MentorsDataModule.js"></script>
+ 
+<div id="workshopDiv" data-ng-controller="ReportController">
+	<div class="form-group row">
+		<div class="col-md-1" style="width: 5%;"></div>       
+		<div class="col-md-10" style="width: 90%;">
+			<div class="panel panel-default">
+				<div class="panel-heading">      
+					<label>Program details</label>  
+				</div>
+				<div class="panel-body">
+					<div class="form-group row">
+						<div class="col-md-3">
+							<label class="control-label"> Name</label>
+							<input type="text" data-ng-model="data12.object.mentorsname" class="form-control">
+						</div>
+						<div class="col-md-3">  
+							<label class="control-label">Branch</label>
+                        <select data-ng-model="data.object.branchid" id="course"
+						 class="form-control" data-ng-change="getCourses(data.object.branchid)">
+						<option value="">--Select Branch to learn--</option>
+						<option data-ng-repeat="branch in branches"    
+							value={{branch.branchid}}>{{branch.branchname}}</option>
+			</select>   						</div>
+						<div class="col-md-3">
+							<label class="control-label">course</label>  
+                          <select data-ng-model="data.object.courseid" id="course"
+						 class="form-control" >
+						<option value="">--Select Courses--</option>
+						<option data-ng-repeat="course in courses"    
+							value={{course.courseid}}>{{course.courseid}}</option>
+			</select> 						</div>
+						   
+					</div>
+				
+					  
+					
+						</div>
+						
+						
+					</div>
+					<div>
+							<button type="button" class="btn btn-success" data-ng-click="FeedBackReport(data.object);">FeedBackReport</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		           
+	
+<script>
+	
+	jQuery(document).ready(function() {
+		/* $(".datePick").datepicker({
+			dateFormat : "dd-mm-yy",  
+			changeMonth : true,  
+			changeYear : true
+		}); */
+		angular.bootstrap(jQuery("#workshopDiv"), ['MentorsDataModule']);
+	});
+</script>

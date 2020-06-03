@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Feedback Form Using HTML, CSS And PHP - reusable form</title>
+        <!-- Latest compiled and minified CSS -->
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link rel="stylesheet" href="/exploretech/css/form.css" >
+        <script src="/exploretech/js/form.js"></script>
+        <script src="/exploretech/js/jquery.min.js"></script>
+        <script src="/exploretech/scripts/FormModule.js"></script>   
+        <style>
+        .row{
+        padding-top:5px;  
+        }
+        .big{ width: 1em; height: 1em; }
+        </style>
+    </head>
+    <body >  
+    <div id="feedback" data-ng-controller="FeedBackController">
+        <div class="container">
+            <div class="imagebg"></div>
+            <div class="row " style="margin-top: 50px">
+                <div class="col-md-10 col-md-offset-2 form-container">
+                    <h2>Feedback</h2> 
+                    <p> Please provide your feedback below: </p>
+                    <form role="form" method="post" id="reused_form">
+                        <div class="row">
+                            <!-- <div class="col-sm-12 form-group"> -->
+                            <div class="col-sm-4">
+                           <h5> Program Name</h5>
+                            </div>
+                            <div class="col-sm-2">
+                            <h5>UnAcceptable</h5>    
+                            </div>
+                             <div class="col-sm-2">
+                           <h5> Needs Improvement</h5>
+                            </div>
+                             <div class="col-sm-2">
+                            <h5>Skilled</h5>
+                            </div>
+                             <div class="col-sm-2">
+                            <h5>Master</h5>
+                            </div>
+                            <!-- </div> -->
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Management of Instructional Materials
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience" data-ng-model="data.object.instruction" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience" data-ng-model="data.object.instruction" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience" data-ng-model="data.object.instruction" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience" data-ng-model="data.object.instruction" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Delivery and Knowledge of Content
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience1" data-ng-model="data.object.knowledge" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience1" data-ng-model="data.object.knowledge" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience1" data-ng-model="data.object.knowledge" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience1" data-ng-model="data.object.knowledge" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Activities and Assignments
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience2" data-ng-model="data.object.activities" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience2" data-ng-model="data.object.activities" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience2" data-ng-model="data.object.activities" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience2" data-ng-model="data.object.activities" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Clarity of Objectives
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience3" data-ng-model="data.object.clarity" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience3" data-ng-model="data.object.clarity" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience3" data-ng-model="data.object.clarity" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience3" data-ng-model="data.object.clarity" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Is research up to date?
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience4" data-ng-model="data.object.research" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience4" data-ng-model="data.object.research" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience4" data-ng-model="data.object.research" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience4" data-ng-model="data.object.research" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Interaction with participants
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience5" data-ng-model="data.object.interaction" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience5" data-ng-model="data.object.interaction" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience5" data-ng-model="data.object.interaction" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience5" data-ng-model="data.object.interaction" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Response to participants
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience6" data-ng-model="data.object.response" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience6" data-ng-model="data.object.response" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience6" data-ng-model="data.object.response" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience6" data-ng-model="data.object.response" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Discussion Techniques
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience7" data-ng-model="data.object.discussion" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience7" data-ng-model="data.object.discussion" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience7" data-ng-model="data.object.discussion" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience7" data-ng-model="data.object.discussion" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Management of Transitions
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience8" data-ng-model="data.object.management" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience8" data-ng-model="data.object.management" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience8" data-ng-model="data.object.management" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience8" data-ng-model="data.object.management" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Quality Of Questions
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience9" data-ng-model="data.object.quality" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience9" data-ng-model="data.object.quality" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience9" data-ng-model="data.object.quality" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience9" data-ng-model="data.object.quality" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Integrates Diversity into Curriculum
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience10" data-ng-model="data.object.integrates" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience10" data-ng-model="data.object.integrates" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience10" data-ng-model="data.object.integrates" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience10" data-ng-model="data.object.integrates" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Checking for Understanding and Feedback
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience11" data-ng-model="data.object.checking" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience11" data-ng-model="data.object.checking" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience11" data-ng-model="data.object.checking" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience11" data-ng-model="data.object.checking" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Provides Learning Opportunity for a variety of Learning Styles 
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience12" data-ng-model="data.object.opportunity" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience12" data-ng-model="data.object.opportunity" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience12" data-ng-model="data.object.opportunity" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience12" data-ng-model="data.object.opportunity" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Oral and Written Language
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience13" data-ng-model="data.object.language" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience13" data-ng-model="data.object.language" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience13" data-ng-model="data.object.language" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience13" data-ng-model="data.object.language" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-sm-4" style="padding-left:5px">
+                              Knowledge of Participants Skills and Experience Level
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience14" data-ng-model="data.object.participantsskills" id="radio_experience" value="UnAcceptable" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience14" data-ng-model="data.object.participantsskills" id="radio_experience" value="Needs Improvement" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience14" data-ng-model="data.object.participantsskills" id="radio_experience" value="Skilled" >
+                            </div>
+                            <div class="col-sm-2">
+                            <input type="radio" class="big" name="experience14" data-ng-model="data.object.participantsskills" id="radio_experience" value="Master" >
+                            </div>
+                            </div>
+                                <!-- <label>How do you rate your overall experience?</label> -->
+                              <!--   <p>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="experience" id="radio_experience" value="bad" >
+                                        Bad 
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="experience" id="radio_experience" value="average" >
+                                        Average 
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="experience" id="radio_experience" value="good" >
+                                        Good 
+                                    </label>
+                                 </p>-->
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <label for="comments"> Comments:</label>
+                                <textarea class="form-control" type="textarea" name="comments" id="comments" data-ng-model="data.object.comments" placeholder="Your Comments" maxlength="6000" rows="7"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <label for="name"> Your Name:</label>
+                                <input type="text" class="form-control" id="name" name="name" required data-ng-model="data.object.name" >
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label for="email"> Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" data-ng-model="data.object.email"  required>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 form-group">
+                        <button type="button" id="add" class="btn btn-primary"
+							data-ng-click="add(data.object)" style="width: 100px">Send FeedBack</button>
+                            </div>
+                        </div>
+                    </form>
+                   
+                </div>  
+            </div>
+        </div>
+        </div>
+       
+        <script>                                               
+		jQuery(document).ready(function() {                                            
+			angular.bootstrap(jQuery("#feedback"), [ 'FormModule' ]); 
+			
+		});
+		</script>
+    </body>
+</html>

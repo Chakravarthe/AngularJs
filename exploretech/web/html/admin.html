@@ -1,0 +1,100 @@
+ <script src="/exploretech/scripts/StudentModule.js"></script>
+ <script src="/exploretech/js/jquery.min.js"></script> 
+ <script src="/exploretech/js/angular.js"></script>
+ <style>
+body {
+  font-family: "Lato", sans-serif;
+}
+                     
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;    
+  top: 0;
+  left: 0;
+  background-color: #111; 
+  overflow-x: hidden;
+  transition: 0.5s;              
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;    
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 20px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+ .startvisible {
+    display: block;
+  }</style>
+  <div  id="Student">
+ <!-- <div style="padding-left:90%; padding-right:5px">
+                
+            </div> -->
+           
+ 
+ 
+ <div id="mySidenav" class="sidenav" style="padding-top:100px;" >
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="#" onclick="Andromeda.showProgramsPage()"> Add Programs </a>
+    <a href="#" onclick="Andromeda.showLoginsPage()"> Login Credentails to mentors </a>
+  <a href="#" onclick="Andromeda.logout();" class="pull-right">Log Out</a>
+  <!-- <a href="#" onclick="Andromeda.showStudentPage()">Registered Programs</a>
+  <a href="#">Registration Courses</a>  
+  <a href="#">Payment Status</a> -->
+</div>
+
+<div id="main">
+ 		
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰</span>
+  <div id="replacediv">
+  </div>
+</div>
+</div>                  
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "180px";
+  document.getElementById("main").style.marginLeft = "180px";
+}
+      
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";              
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+   <!--  <script>
+    jQuery(document).ready(function() {                
+	 	$("#Register").hide(); 
+	angular.bootstrap(jQuery("#Student"), [ 'StudentModule' ]);
+		});            
+ jQuery("#Reg").on('click',function(){
+	 $('.display').val('Register');
+    }); 
+    </script> -->

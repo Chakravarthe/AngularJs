@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Login">         
+
+<select resultType="java.lang.Integer" parameterType="map" id="checkUser"> 
+select count(*) from registrations where username = #{p.username} AND password = #{p.password} 
+</select>
+<!-- <select parameterType="map" id="getRole" resultType="Login">  
+select role from admin.user where email = #{email} AND password = #{password} 
+</select> -->         
+      
+<select resultType="Login" parameterType="map" id="getUserDetails"> 
+select username,password,role  from registrations where username = #{username} AND password = #{password}
+<!-- AND role = #{role} -->
+</select> 
+ 
+    <!-- <select resultType="Login" parameterType="map" id="getUserDetails1"> 
+SELECT a.email as email,a.password as password,a.role as role,a.status as status from(
+select email,password,role,institutioncode,status from admin.user where email =#{email} AND password = #{password})a
+</select> -->
+<insert parameterType="map" id="saveLogins">         
+insert into login(username, password, role ,institutioncode,logtime,logip ) 
+values(#{p.username},#{p.password} ,#{p.role}, #{p.institutioncode},SYSDATETIME(),#{p.ipaddress} ) </insert>
+
+ <!-- <select resultType="java.lang.Integer" parameterType="map" id="adminLoggedIn">
+ select count(*) from admin.user where email = #{p.email} and role = #{p.role} </select>
+
+<select resultType="java.lang.Integer" parameterType="map" id="principalLoggedIn"> 
+select count(*) from admin.user where email = #{p.email} and role = #{p.role} </select>
+
+<select resultType="java.lang.Integer" parameterType="map" id="userLoggedIn"> 
+select count(*) from admin.user where email = #{p.email} and role = #{p.role} </select>
+ -->
+<delete parameterType="java.lang.String" id="deleteLoginLog">
+ DELETE FROM login WHERE username = #{p.username} 
+ </delete>                               
+ 
+</mapper>           

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Login">         
+
+<select resultType="java.lang.Integer" parameterType="map" id="checkUser"> 
+select count(*) from principal.registrations where ( email = #{p.email} OR regid = #{p.email} ) AND password = #{p.password} 
+</select>
+<select parameterType="map" id="getRole" resultType="Login">  
+select role from admin.user where email = #{email} AND password = #{password} 
+</select>          
+      
+<select resultType="Login" parameterType="map" id="getUserDetails"> 
+select email,password,qualification,regid,courseid  from principal.registrations where ( email = #{p.email} OR regid = #{p.email} ) AND password = #{p.password}
+<!-- AND role = #{role} -->        
+</select>     
+ 
+<select resultType="Login" parameterType="map" id="getUserDetails1"> 
+SELECT a.email as email,a.password as password,a.role as role,a.status as status from(
+select email,password,role,institutioncode,status from admin.user where email =#{email} AND password = #{password})a
+</select>
+<insert parameterType="map" id="saveLogins">         
+insert into principal.login(email, password,qualification <!--,institutioncode -->) 
+values(#{p.email},#{p.password}, #{p.qualification} ) </insert>
+<select resultType="java.lang.Integer" parameterType="map" id="userLoggedIn"> 
+select count(*) from admin.user where email = #{p.email} and role = #{p.role} </select>
+
+ <!-- <select resultType="java.lang.Integer" parameterType="map" id="adminLoggedIn">
+ select count(*) from admin.user where email = #{p.email} and role = #{p.role} </select>
+
+<select resultType="java.lang.Integer" parameterType="map" id="principalLoggedIn"> 
+select count(*) from admin.user where email = #{p.email} and role = #{p.role} </select>
+
+
+ -->
+<!-- <delete parameterType="java.lang.String" id="deleteLoginLog">
+ DELETE FROM principal.login WHERE email = #{p.email}             
+ </delete> -->                               
+ 
+</mapper>           

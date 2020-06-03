@@ -1,0 +1,146 @@
+<script src="/exploretech/scripts/EditModule.js"></script>
+    <div class="site-section bg-light contact-wrap" id="reedit" data-ng-controller="editController">
+    
+      <div class="container">
+        
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-md-8  section-heading">
+            <h2 class="heading mb-3">Update Profile</h2>
+          
+                                          
+          </div>   
+        </div>
+    
+        <div class="row justify-content-center">
+          <div class="col-md-7">
+            <form method="post" data-aos="fade">
+              <div class="form-group row">
+                <div class="col-md-6 mb-3 mb-lg-0">
+                  <input type="text" class="form-control" data-ng-model="data.object.name" placeholder="First Name">
+                </div>
+                <!-- <div class="col-md-6">
+                <input type="text" class="form-control" data-ng-model="data.object.name" placeholder="Qualification">
+                 <select class="form-control" id="category_select" data-ng-model="data.object.qualification">
+                 <option>Select Qualification</option>
+                 <option  value="stu">Student</option>
+                 <option  value="graduatee1">Graduatee</option>
+                 <option  value="others1">Others</option>
+                 </select>
+                </div> -->
+              </div>
+    <div id="Student">
+    	
+			 <div class="form-group row">
+                <div class="col-md-6 mb-3 mb-lg-0">
+                  <input type="text" class="form-control"data-ng-model="data.object.email" placeholder="Enter Email">
+                </div>
+                
+              </div>    
+                <div class="form-group row">  
+                <div class="col-md-6 mb-3 mb-lg-0">      
+                 <input type="text" class="form-control"data-ng-model="data.object.phoneno" placeholder="Enter Phone No">
+                </div>
+                
+              </div>
+                     
+                <div class="form-group row">
+                <div class="col-md-6">
+    			<input type="submit" class="btn btn-primary py-3 px-5 btn-block"data-ng-click="updateProfile(data.object)" value="Update">
+                </div>
+              
+             
+        </div>    
+        </div>
+       <!--  <div id="Graduatee">
+        <div class="form-group row">
+            <div class="col-md-6 mb-3 mb-lg-0">
+             <select data-ng-model="data.object.courseid" id="slots"
+						 class="form-control" data-ng-change="getAmount(data.object.courseid)">
+						<option value="">--Select Courses--</option>
+						<option data-ng-repeat="course in courses"    
+							value={{course.courseid}}>{{course.coursename}}</option>
+			</select> 
+             </div>
+             <div class="col-md-6">
+                  <input type="number" class="form-control"data-ng-model="data1.object.amount" placeholder="Enter Amount">
+                </div>
+          </div>
+			 <div class="form-group row">
+                <div class="col-md-6 mb-3 mb-lg-0">
+                  <input type="text" class="form-control"data-ng-model="data.object.email"  placeholder="Enter Email">
+                </div>
+                <div class="col-md-6">
+                 <input type="password" class="form-control" data-ng-model="data.object.password" placeholder="Enter Password">
+                </div>
+              </div>
+               <div class="form-group row">
+                <div class="col-md-6 mb-3 mb-lg-0">
+                 <input type="number" class="form-control" data-ng-model="data.object.phoneno" placeholder="Enter Phone No">
+                  </div> 
+                 <div class="col-md-6">
+                <input type="date" class="form-control"data-ng-model="data.object.dob" placeholder="Enter DateOfBirth">
+                </div> 
+              </div>
+        <div class="form-group row">
+                <div class="col-md-6">
+    			<input type="submit" class="btn btn-primary py-3 px-5 btn-block"data-ng-click="save(data.object)" value="Register">
+                </div>
+              </div>
+        </div>      
+        <div id="Others">
+        <div class="form-group row">
+            <div class="col-md-6 mb-3 mb-lg-0">
+             <select data-ng-model="data.object.courseid" id="slots"
+						 class="form-control" data-ng-change="getAmount(data.object.courseid)">
+						<option value="">--Select Courses--</option>
+						<option data-ng-repeat="course in courses"    
+							value={{course.courseid}}>{{course.coursename}}</option>
+			</select> 
+             </div>
+             <div class="col-md-6">
+                  <input type="number" class="form-control"data-ng-model="data1.object.amount" placeholder="Enter Amount">
+                </div>
+          </div>
+			 <div class="form-group row">
+                <div class="col-md-6 mb-3 mb-lg-0">
+                  <input type="text" class="form-control"data-ng-model="data.object.email" placeholder="Enter Email">
+                </div>
+                <div class="col-md-6">
+                 <input type="password" class="form-control" data-ng-model="data.object.phoneno"placeholder="Enter password">
+                </div>
+              </div>
+               <div class="form-group row">
+                <div class="col-md-6 mb-3 mb-lg-0">
+                 <input type="number" class="form-control" data-ng-model="data.object.phoneno"placeholder="Enter Phone No">
+                  </div>
+                <div class="col-md-6">
+                <input type="date" class="form-control" data-ng-model="data.object.dob"placeholder="Enter DateOfBirth">
+                </div>
+              </div>
+        <div class="form-group row">
+                <div class="col-md-6">
+    			<input type="submit" class="btn btn-primary py-3 px-5 btn-block"data-ng-click="save(data.object)" value="Register">
+                </div>
+              </div>                          
+        </div>
+         
+        
+    
+            </form>       
+          </div>
+        </div>
+      </div>
+    </div> -->
+    </form>    
+    </div>
+    </div>
+    </div>
+    </div>
+   
+ <script>
+ jQuery(document).ready(function() {                
+	 angular.bootstrap(jQuery("#reedit"), [ 'EditModule' ]);
+		});
+ </script>                     
+
+                          

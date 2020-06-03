@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="Program">
+ 
+ <select id="getBranches" resultType="map">
+		select
+	     branchid,branchname   
+		from principal.branch_mst Order By branchname;
+	</select>     
+			
+	<insert id="Insert" parameterType="map">
+		insert into principal.course_mst(coursename,courseid,startdate,enddate,programduration,durationtype,branchid,amount)
+		values(#{p.coursename},#{p.courseid},#{p.startdate},#{p.enddate},#{p.programduration},#{p.durationtype},#{p.branchid},#{p.amount})
+	</insert>			
+			
+			
+</mapper>         

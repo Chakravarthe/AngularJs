@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MentorsModel">
+	<insert id="saveDetails" parameterType="map">
+		insert into admin.mentors_mst(mentorsname, mentorsemail,phoneno,courseid,branchid, ipaddress, loguser,logtime)
+		values(initcap(#{p.mentorsname}), #{p.mentorsemail},#{p.phoneno},#{p.courseid},#{p.branchid}, #{p.ipaddress},'admin@sbtet.com',current_timestamp);
+	</insert>
+	 <select id="getDetails" parameterType="map" resultType="MentorsModel">
+		select mentorsname, concat(RIGHT(phoneno, 4), '@', 'tech') pwd from admin.mentors_mst Where mentorsemail=#{p.mentorsemail};
+	</select>  
+	<select id="checkUser" parameterType="map" resultType="java.lang.Integer">  
+		select count(*) from principal.registrations where email = #{p.mentorsemail};
+	</select>    
+	<insert id="saveLogins" parameterType="map">   
+		insert into principal.registrations(name, email,phoneno, password, qualification,courseid,branchid,  logip,logtime,status)     
+		values(initcap(#{p.mentorsname}), #{p.mentorsemail},#{p.phoneno}, #{p.pwd}, 'Mentor',#{p.courseid},#{p.branchid} ,#{p.ipaddress},current_timestamp,1);
+	</insert>
+		<select id="getUserId" parameterType="map" resultType="java.lang.Integer">
+		select userid from principal.registrations where email = #{p.mentorsemail} ORDER BY logtime DESC LIMIT 1;
+	</select>    
+	    
+	    
+</mapper>    

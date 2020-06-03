@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="College">
+
+      
+   <select id="getCollegeDetails" parameterType="map" resultType="College">
+		select institutionname, (institutioncode) pwd from principal.institution_mst
+		 where institutioncode = #{p.institutioncode};   
+	</select>
+	
+	  <select id="getRole" parameterType="map" resultType="java.lang.Integer">
+		select count(*) from principal.registrations where username = #{p.username};
+	</select>
+	
+	<select id="checkUser" parameterType="map" resultType="java.lang.Integer">
+		select count(*) from principal.registrations where username = #{p.username};    
+	</select>
+	
+	<insert id="saveLogins" parameterType="map">
+		insert into principal.registrations(name, username, mobileno, password, institutioncode, role )
+		values(initcap(#{p.principalname}), #{p.institutioncode},#{p.mobileno}, #{p.password}, #{p.institutioncode},#{p.role});
+	</insert>
+	<update id="update"  parameterType="map">          
+		update principal.registrations SET 
+		institutioncode=#{p.institutioncode} WHERE username=#{p.username};   
+	</update> 
+	<select resultType="College" parameterType="map" id="getById"> 
+		select institutioncode from principal.registrations where username = #{p.username} 
+		 </select>
+	      
+	  <select id="getDetails" parameterType="map" resultType="College">
+		select  username,password from principal.registrations where
+		username = #{p.username}                 
+	</select>  
+	<select id="getUserId" parameterType="map" resultType="java.lang.Integer">
+		select id from principal.registrations where username = #{p.username} DESC LIMIT 1;
+	</select>
+	  <update id="assignRole"  parameterType="map">    
+		update principal.registrations SET 
+		roleid=16 WHERE username=#{p.username};   
+	</update>   
+	<!-- <insert id="assignRole" parameterType="map">                         
+		update INTO admin.user(userid, roleid) VALUES (#{p.userId}, 16);                      
+	</insert> -->     
+	   
+	<select id="getLogins" parameterType="java.lang.Integer" resultType="map">
+	    select a.username, concat( a.institutioncode) AS pwd from
+		(select username, institutioncode from principal.registrations  where institutioncode = #{institutioncode}
+		)a 
+		INNER JOIN
+		(select institutioncode from principal.institution_mst) b
+		on (a.institutioncode = b.institutioncode) ORDER BY a.username;
+
+	</select>  
+	  <!--  <select id="getLogins" parameterType="java.lang.Integer" resultType="map">
+		select a.username, concat(b.code, '@', a.collegeid) AS pwd from
+		(select id, username, collegeid from admin.user where collegeid = #{collegeId} and id in
+			(select distinct userid from admin.user_role where roleid = 16)) a    
+		INNER JOIN
+		(select id, code from principal.colleges_polytechnic) b
+		on (a.collegeid = b.id) ORDER BY a.username;
+	</select>   
+	      -->
+	<select id="getDistricts" resultType="map">    
+			select
+	    distinct districtid,districtname             
+		from principal.district_mst;         
+			</select>    
+	     
+	<select id="getColleges" parameterType="java.lang.Integer" resultType="map">
+		select institutioncode, institutionname from principal.institution_mst  ORDER BY institutionname;
+	</select>
+	
+</mapper>

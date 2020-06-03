@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">      
+
+<head>
+  <title>exploretech</title>   
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />              
+                      
+
+  <link rel="shortcut icon" href="ftco-32x32.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="/exploretech/fonts/icomoon/style.css">
+<link rel="stylesheet" href="/exploretech/css/sweetalert.css">
+  <link rel="stylesheet" href="/exploretech/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/exploretech/css/jquery-ui.css">
+  <link rel="stylesheet" href="/exploretech/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/exploretech/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/exploretech/css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="/exploretech/css/jquery.fancybox.min.css">
+
+  <link rel="stylesheet" href="/exploretech/css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="/exploretech/fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="/exploretech/css/aos.css">
+  <link href="/exploretech/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/exploretech/css/style.css">
+<script src="/exploretech/js/sweetalert-dev.js"></script>
+     
+  <script src="/exploretech/js/jquery-3.3.1.min.js"></script>
+  <script src="/exploretech/js/jquery.min.js"></script>
+  <script src="/exploretech/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="/exploretech/js/jquery-ui.js"></script>
+  <script src="/exploretech/js/popper.min.js"></script>       
+  <script src="/exploretech/js/bootstrap.min.js"></script>
+  <script src="/exploretech/js/owl.carousel.min.js"></script>
+  <script src="/exploretech/js/jquery.stellar.min.js"></script>
+  <script src="/exploretech/js/jquery.countdown.min.js"></script>
+  <script src="/exploretech/js/bootstrap-datepicker.min.js"></script>
+  <script src="/exploretech/js/jquery.easing.1.3.js"></script>   
+  <script src="/exploretech/js/aos.js"></script>      
+  <script src="/exploretech/js/jquery.fancybox.min.js"></script>
+  <script src="/exploretech/js/jquery.sticky.js"></script>
+  <script src="/exploretech/js/jquery.mb.YTPlayer.min.js"></script>
+  <script src="/exploretech/js/main.js"></script>   
+  <script src="/exploretech/js/Andromeda.js"></script>     
+  <script src="/exploretech/js/angular.js"></script>
+      
+</head>
+     
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+ <div id="mainDiv">      
+     <script type="text/javascript">  
+     jQuery(document).ready(function() {
+    	 if ((Andromeda.isUserLoggedIn()) && (Andromeda.getSessionValue("qualification") == "ENGSTU")) {
+ 			Andromeda.showStudentPage();
+   		} 
+    	 else if ((Andromeda.isUserLoggedIn()) && (Andromeda.getSessionValue("qualification") == "POLYSTU")) {
+  			Andromeda.showStudentPage();
+    		}   
+ 		else if ((Andromeda.isUserLoggedIn()) && (Andromeda.getSessionValue("qualification") == "GRADUATEES")) {
+ 			Andromeda.showGraduateePage();
+ 		}
+ 		else if ((Andromeda.isUserLoggedIn()) && (Andromeda.getSessionValue("qualification") == "OTHERS")) {
+ 			Andromeda.showOthersPage();
+ 		}
+		else if ((Andromeda.getSessionValue("qualification") == "ADMIN")) {
+			//console.log("Others");
+			Andromeda.showAdminPage();
+		}
+		else if ((Andromeda.getSessionValue("qualification") == "Mentor")) {
+			//console.log("Others");
+			Andromeda.showMentorPage();
+		}
+ 		else {
+ 			 Andromeda.showHomePage();     
+ 		}           
+     });   
+        
+   </script> 
+                      
+</div>  
+
+</body>
+
+</html>

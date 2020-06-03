@@ -1,0 +1,221 @@
+ <script src="/exploretech/scripts/StudentModule.js"></script>
+ <script src="/exploretech/js/jquery.min.js"></script> 
+ <!-- <script src="/exploretech/js/angular.js"></script> -->
+ <style>
+body {
+  font-family: "Lato", sans-serif;
+}
+                     
+.sidenav {
+  height: 100%;               
+  width: 0;
+  position: fixed;
+  z-index: 1;    
+  top: 0;
+  left: 0;
+  background-color: #111; 
+  overflow-x: hidden;
+  transition: 0.5s;                 
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;    
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 20px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+ .startvisible {
+    display: block;
+  }</style>
+  
+<!--  <div style="padding-left:70%; padding-right:5px">
+                <input data-ng-model="studetails.name">
+                
+            </div> -->
+           
+ 
+ 
+ <div id="mySidenav" class="sidenav" style="padding-top:100px;" >
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="#" onclick="Andromeda.showEditPage()"> Edit Profile </a>
+  <a href="#" onclick="Andromeda.showStudentPage()">Registered Programs</a>
+  <a href="#" onclick="Andromeda.showFeedbackPage()">feedback form</a>  
+  <a href="#">Payment Status</a>
+  <a href="#" onclick="Andromeda.logout();" class="pull-right">Log Out</a>
+</div>
+
+<div id="main">       
+ 		
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰</span>
+  <div id="replacediv">
+  <div  id="Student" data-ng-controller="StudentController">
+  <table class="table table-bordered" style="width:90%" >
+				<tr style='background-color: ghostwhite'>   
+					<th>Name</th>
+					<th>Program</th>
+					<th>From Date</th>
+					<th>To Date</th>
+					<th>Amount</th>
+					<th>Pay</th>
+				</tr>
+				<tr data-ng-repeat="data in studetails">
+					<td>{{data.name}}</td>   
+					<td>{{data.coursename}}</td>
+					<td>{{data.startdate}}</td>
+					<td>{{data.enddate}}</td>    
+					<td>{{data.amount}}</td>
+					<td>&nbsp;&nbsp;&nbsp;
+						 <button type="button" id="editData"       
+							data-ng-click="save();"   
+							class="btn btn-primary btn-md" >Pay
+						</button> <!--  &nbsp;&nbsp;&nbsp;
+						<button type="button" class="btn btn-danger" id="removebtn"
+							data-ng-click="removeData(data.branch)">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button> -->     
+					</td>
+				</tr>    
+				
+			</table>
+			</div>       
+</div>             
+</div>     
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "180px";
+  document.getElementById("main").style.marginLeft = "180px";
+}
+      
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";              
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+
+		
+		                
+			
+ 
+ <!-- <div class="site-section" id="Courses" data-ng-controller="CourseController">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-md-8  section-heading">
+            <span class="subheading">Technical Education</span>
+            <h2 class="heading mb-3">Branches</h2>
+          </div>
+        </div>
+        <div class="row" data-ng-repeat="data in courses">
+          <div class="col-sm-4" >
+            <div class="class-item d-flex align-items-center">
+              <a href="#" class="class-item-thumbnail">
+                <img src="images/img_1.jpg">
+              </a>
+              <div class="class-item-text">
+               <h2><a href="#"onclick="#Register" id="Reg">{{data.coursename}}</a></h2>
+              </div>
+            </div>
+
+            <div class="class-item d-flex align-items-center">
+              <a href="#" class="class-item-thumbnail">
+                <img src="images/img_2.jpg" >           
+              </a>
+              <div class="class-item-text">
+                
+                <h2><a href="#">{{data.coursename}}</a></h2>
+                
+              </div>
+            </div>
+
+            <div class="class-item d-flex align-items-center">
+              <a href="#" class="class-item-thumbnail">
+                <img src="images/img_3.jpg" >
+              </a>
+              <div class="class-item-text">
+                
+                <h2><a href="#">{{data.coursename}}</a></h2>
+               
+              </div>
+            </div>
+            
+            <div class="class-item d-flex align-items-center">
+              <a href="#" class="class-item-thumbnail">
+                <img src="images/img_4.jpg" >
+              </a>
+              <div class="class-item-text">
+                
+                <h2><a href="#">{{data.coursename}}</a></h2>
+                <span>Famous Scientist</span>:
+                <span>David Kingery</span>
+              </div>
+            </div>
+
+            <div class="class-item d-flex align-items-center">
+              <a href="#" class="class-item-thumbnail">
+                <img src="images/img_5.jpg" >
+              </a>
+              <div class="class-item-text">
+                
+                <h2><a href="#">{{data.coursename}}</a></h2>
+                <span>Father</span>:
+                <span>Michael faraday</span>
+              </div>
+            </div>
+                 
+           
+          </div>
+           
+         <div class="col-lg-6" id="Register">
+       		<div class="form-group row">
+                <div class="col-md-6 mb-3 mb-lg-0">
+                  <input type="text" class="form-control"data-ng-model="data.object.coursename" disabled placeholder="Enter Coursename">
+                </div>
+                <div class="col-md-6">
+                <select   
+						data-ng-model="data.object.slots" id="slots"
+						 class="form-control">
+						<option value="">--Select Slots--</option>
+						<option data-ng-repeat="slot in slots"    
+							value={{slot.slots}}>{{slot.slots}}</option>
+					</select>    
+                </div>
+              </div>
+          </div> 
+       </div>
+      </div>
+    </div> -->
+    <script>
+    jQuery(document).ready(function() {                
+	 	$("#Register").hide(); 
+	angular.bootstrap(jQuery("#Student"), [ 'StudentModule' ]);
+		});            
+ jQuery("#Reg").on('click',function(){
+	 $('.display').val('Register');
+    }); 
+    </script>

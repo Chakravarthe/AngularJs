@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Register">
+<insert id="Insert" parameterType="map">
+	insert into	principal.registrations(qualification,age,districtid,collegeid,name,email,password,phoneno,courseid,branchid,logip,logtime)
+	values(#{p.qualification},#{p.age},#{p.districtid},#{p.collegeid},#{p.name},#{p.email},#{p.password},#{p.phoneno},#{p.courseid},#{p.branchid},#{p.ipaddress},current_timestamp)
+	</insert>
+	    
+	<select id="Count" parameterType="map" resultType="Register"> 
+	select count(courseid)+1 as count from principal.registrations where courseid = #{p.courseid} AND 
+	branchid = #{p.branchid} 
+	</select>                    
+	
+	
+	<update id="updateData"  parameterType="map">    
+		update principal.registrations SET
+		regid = concat('TECH',#{p.qualification},#{p.branchid},#{p.courseid},#{p.age},lpad(CAST(#{p.count} AS character varying ),4,'0')) 
+		WHERE email=#{p.email};       
+    </update>  
+                
+    <select id="getById" resultType="Register">
+		SELECT name,email,phoneno from principal.registrations WHERE email = #{email};
+	  </select>       
+	  
+	  <update id="updateProfile"  parameterType="map">   
+		update principal.registrations SET name=#{p.name},email=#{p.email},
+		phoneno=#{p.phoneno} WHERE name=#{p.name};
+	</update>
+</mapper>                  
+   
+                    

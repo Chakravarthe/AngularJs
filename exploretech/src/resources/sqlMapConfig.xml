@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+   		<typeAliases>
+   		  
+   		     <typeAlias alias="login" type="com.spring.Model.Login" />
+   		     <!-- <typeAlias alias="email" type="com.spring.Model.Email" />
+   		     <typeAlias alias="college" type="com.spring.Model.College" /> -->
+   		  	     
+      	</typeAliases>              
+      	
+   	 	<mappers>  
+   	 	
+   	         <mapper resource="com/example/security/model/Login-MyBatis.xml" />
+   	 	     <!-- <mapper resource="com/example/security/model/College-MyBatis.xml" /> -->
+   	 	     
+       	</mappers>    
+        
+</configuration>   
